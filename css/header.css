@@ -1,0 +1,41 @@
+#AppInfo div.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+#AppInfo div.header > div {
+  display: flex;
+
+  gap: 10px;
+  align-items: center;
+}
+#AppInfo div.header div.left img {
+  height: 64px;
+}
+
+#AppInfo div.header div.left p.name {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+}
+
+#AppInfo div.header div.left p.author {
+  opacity: 0.5;
+  margin: 0;
+}
+
+#AppInfo div.header div.right button {
+  height: 32px;
+  margin: 0;
+}
+
+#AppInfo div.header div.right button.disable {
+  background-color: var(--clr-red-fg);
+  color: var(--clr-red-bg);
+}
+
+#AppInfo div.header div.right button.material-icons-round {
+  padding: 0;
+  width: 35px;
+  font-size: 20px;
+}

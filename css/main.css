@@ -1,3 +1,15 @@
-window#appTemplate { /* Rename appTemplate to the ID of the app */
-  color: #f0f;
+@import url("./header.css");
+@import url("./infoblock.css");
+
+#AppInfo {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+#AppInfo > div.body {
+  padding: 25px !important;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex-grow: 1;
 }
