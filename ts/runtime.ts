@@ -1,4 +1,6 @@
 import { AppRuntime, getAppById } from "$ts/apps";
+import { AppInfoIcon } from "$ts/images/apps";
+import { sendNotification } from "$ts/notif";
 import { Process } from "$ts/process";
 import { Store } from "$ts/writable";
 import type { App } from "$types/app";
@@ -13,6 +15,13 @@ export class AppInfoRuntime extends AppRuntime {
 
     function stop() {
       process.handler.kill(process.pid);
+
+      sendNotification({
+        title: "Can't open App Info",
+        message: "App Info was opened without a valid App ID to pull the information from.",
+        image: AppInfoIcon,
+        timeout: 6000,
+      })
     }
 
     const arg = process.args[0] as string;
