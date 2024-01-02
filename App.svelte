@@ -1,12 +1,12 @@
 <script lang="ts">
   import { App } from "$types/app";
   import { onMount } from "svelte";
+  import Actions from "./Components/Actions.svelte";
   import Header from "./Components/Header.svelte";
-  import "./css/main.css";
-  import { AppInfoRuntime } from "./ts/runtime";
   import IndepthInfo from "./Components/IndepthInfo.svelte";
   import ProcessInfo from "./Components/ProcessInfo.svelte";
-  import Actions from "./Components/Actions.svelte";
+  import "./css/main.css";
+  import { AppInfoRuntime } from "./ts/runtime";
 
   export let runtime: AppInfoRuntime;
 
