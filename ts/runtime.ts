@@ -1,9 +1,11 @@
 import { AppRuntime, getAppById } from "$ts/apps";
+import { Log } from "$ts/console";
 import { AppInfoIcon } from "$ts/images/apps";
 import { sendNotification } from "$ts/notif";
 import { Process } from "$ts/process";
 import { Store } from "$ts/writable";
 import type { App } from "$types/app";
+import { LogLevel } from "$types/console";
 import { ReadableStore } from "$types/writable";
 
 export class AppInfoRuntime extends AppRuntime {
@@ -15,6 +17,7 @@ export class AppInfoRuntime extends AppRuntime {
 
     function stop() {
       process.handler.kill(process.pid);
+
 
       sendNotification({
         title: "Can't open App Info",
@@ -29,6 +32,8 @@ export class AppInfoRuntime extends AppRuntime {
     if (!arg || typeof arg !== "string") {
       stop();
 
+      this.Log("Not opening AppInfo without an ID to pull data from", "constructor", LogLevel.error);
+
       return;
     }
 
@@ -36,6 +41,8 @@ export class AppInfoRuntime extends AppRuntime {
 
     if (!targetApp) {
       stop();
+
+      this.Log("Not opening AppInfo without a valid app-ID to pull data from", "constructor", LogLevel.error);
 
       return;
     }
