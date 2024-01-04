@@ -1,13 +1,18 @@
 <script lang="ts">
   import { App } from "$types/app";
+  import { AppInfoRuntime } from "../ts/runtime";
   import Segment from "./IndepthInfo/Segment.svelte";
 
-  export let id: string;
   export let target: App;
+  export let runtime: AppInfoRuntime;
 
-  function singleInstanceHelp() {}
+  function singleInstanceHelp() {
+    runtime.singleInstanceDialog();
+  }
 
-  function loadConditionHelp() {}
+  function loadConditionHelp() {
+    runtime.loadConditionDialog();
+  }
 </script>
 
 <div class="info-block">

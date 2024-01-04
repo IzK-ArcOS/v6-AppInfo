@@ -21,7 +21,7 @@
 
 {#if id && target}
   <Header {target} {id} />
-  <IndepthInfo {target} {id} />
+  <IndepthInfo {runtime} {target} />
   <ProcessInfo {id}></ProcessInfo>
   <Actions {id} {runtime}></Actions>
 {/if}

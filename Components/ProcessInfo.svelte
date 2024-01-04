@@ -10,10 +10,8 @@
   function update() {
     const pids = ProcessStack.getAppPids(id);
 
-    if (!pids.length) return;
-
     count = pids.length;
-    pid = pids[0];
+    pid = pids.length ? pids[0] : -1;
   }
 
   ProcessStack.processes.subscribe(update);

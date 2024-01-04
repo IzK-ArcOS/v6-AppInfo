@@ -3,10 +3,13 @@ import { Log } from "$ts/console";
 import { AppInfoIcon } from "$ts/images/apps";
 import { sendNotification } from "$ts/notif";
 import { Process } from "$ts/process";
+import { createErrorDialog } from "$ts/process/error";
 import { Store } from "$ts/writable";
 import type { App } from "$types/app";
 import { LogLevel } from "$types/console";
 import { ReadableStore } from "$types/writable";
+import LoadCondition from "../Components/LoadCondition.svelte";
+import SingleInstance from "../Components/SingleInstance.svelte";
 
 export class AppInfoRuntime extends AppRuntime {
   public _targetApp: ReadableStore<App> = Store<App>();
@@ -49,5 +52,23 @@ export class AppInfoRuntime extends AppRuntime {
 
     this._targetId.set(arg)
     this._targetApp.set(targetApp);
+  }
+
+  public loadConditionDialog() {
+    createErrorDialog({
+      title: "Load Condition",
+      component: LoadCondition,
+      buttons: [{ caption: "Understood", action() { }, suggested: true }],
+      image: AppInfoIcon
+    }, this.process.pid, true)
+  }
+
+  public singleInstanceDialog() {
+    createErrorDialog({
+      title: "Single Instance",
+      component: SingleInstance,
+      buttons: [{ caption: "Understood", action() { }, suggested: true }],
+      image: AppInfoIcon
+    }, this.process.pid, true)
   }
 }

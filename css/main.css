@@ -15,6 +15,10 @@
   background-color: var(--win-bg);
 }
 
+#AppInfo #ErrorDialog {
+  max-width: 460px !important;
+}
+
 #AppInfo > div.titlebar {
   border-bottom: var(--win-border-light);
 }
