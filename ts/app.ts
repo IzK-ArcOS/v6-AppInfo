@@ -29,5 +29,6 @@ export const AppInfo: App = {
     minimize: true,
     maximize: false,
     close: true
-  }
+  },
+  glass: true
 }

@@ -1,18 +1,12 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { killAllAppInstances } from "$ts/process/kill";
   import { AppInfoRuntime } from "../ts/runtime";
 
   export let id: string;
   export let runtime: AppInfoRuntime;
 
-  onMount(() => {});
-
-  async function killAll() {
-    const pids = runtime.process.handler.getAppPids(id);
-
-    for (let i = 0; i < pids.length; i++) {
-      await runtime.process.handler.kill(pids[i]);
-    }
+  function killAll() {
+    killAllAppInstances(id);
   }
 
   function close() {

@@ -12,4 +12,9 @@
   flex-direction: column;
   gap: 15px;
   flex-grow: 1;
+  background-color: var(--win-bg);
+}
+
+#AppInfo > div.titlebar {
+  border-bottom: var(--win-border-light);
 }
