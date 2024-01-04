@@ -18,13 +18,15 @@ export class AppInfoRuntime extends AppRuntime {
   constructor(app: App, mutator: ReadableStore<App>, process: Process) {
     super(app, mutator, process);
 
-    function stop() {
+    function stop(arg?: string) {
       process.handler.kill(process.pid);
 
 
+      const suffix = arg ? ` App "${arg}" could not be found.` : "";
+
       sendNotification({
         title: "Can't open App Info",
-        message: "App Info was opened without a valid App ID to pull the information from.",
+        message: `App Info was opened without a valid App ID to pull the information from.${suffix}`,
         image: AppInfoIcon,
         timeout: 6000,
       })
@@ -43,9 +45,9 @@ export class AppInfoRuntime extends AppRuntime {
     const targetApp = getAppById(arg);
 
     if (!targetApp) {
-      stop();
+      stop(arg);
 
-      this.Log("Not opening AppInfo without a valid app-ID to pull data from", "constructor", LogLevel.error);
+      this.Log("Not opening AppInfo without a valid app-ID to pull data from.", "constructor", LogLevel.error);
 
       return;
     }
