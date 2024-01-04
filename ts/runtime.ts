@@ -28,7 +28,7 @@ export class AppInfoRuntime extends AppRuntime {
         title: "Can't open App Info",
         message: `App Info was opened without a valid App ID to pull the information from.${suffix}`,
         image: AppInfoIcon,
-        timeout: 6000,
+        timeout: 3000,
       })
     }
 
