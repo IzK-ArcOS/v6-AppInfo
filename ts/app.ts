@@ -9,7 +9,9 @@ export const AppInfo: App = {
     description: "View information about an app",
     author: "The ArcOS Team",
     version: "2.0.0",
-    icon: AppInfoIcon
+    appGroup: "internal",
+    icon: AppInfoIcon,
+    hidden: true
   },
   runtime: AppInfoRuntime,
   content: AppSvelte,
