@@ -26,10 +26,16 @@
   gap: 5px;
   align-items: center;
 }
+
 #AppInfo div.info-block div.segment p.title button.help {
   margin: 0;
   padding: 0;
   font-size: 16px;
+  background-color: transparent;
+}
+
+#AppInfo div.info-block div.segment p.title button.help:hover {
+  color: var(--accent-light);
 }
 
 #AppInfo div.info-block div.segment.right {

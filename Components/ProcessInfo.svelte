@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { spawnApp } from "$ts/apps";
   import { ProcessStack } from "$ts/stores/process";
   import Segment from "./IndepthInfo/Segment.svelte";
 
@@ -14,6 +15,10 @@
     pid = pids.length ? pids[0] : -1;
   }
 
+  function procMan() {
+    spawnApp("ProcessManager");
+  }
+
   ProcessStack.processes.subscribe(update);
 </script>
 
@@ -25,6 +30,6 @@
     <Segment title="First PID">
       {pid < 0 ? "None" : pid}
     </Segment>
-    <button class="action">Process Manager</button>
+    <button class="action" on:click={procMan}>Process Manager</button>
   </div>
 </div>

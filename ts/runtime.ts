@@ -28,7 +28,7 @@ export class AppInfoRuntime extends AppRuntime {
         title: "Can't open App Info",
         message: `App Info was opened without a valid App ID to pull the information from.${suffix}`,
         image: AppInfoIcon,
-        timeout: 3000,
+        /* timeout: 3000, */
       })
     }
 
@@ -61,7 +61,8 @@ export class AppInfoRuntime extends AppRuntime {
       title: "Load Condition",
       component: LoadCondition,
       buttons: [{ caption: "Understood", action() { }, suggested: true }],
-      image: AppInfoIcon
+      image: AppInfoIcon,
+      sound: "arcos.dialog.info"
     }, this.process.pid, true)
   }
 
@@ -70,7 +71,8 @@ export class AppInfoRuntime extends AppRuntime {
       title: "Single Instance",
       component: SingleInstance,
       buttons: [{ caption: "Understood", action() { }, suggested: true }],
-      image: AppInfoIcon
+      image: AppInfoIcon,
+      sound: "arcos.dialog.info"
     }, this.process.pid, true)
   }
 }
