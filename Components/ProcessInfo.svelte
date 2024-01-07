@@ -30,6 +30,6 @@
     <Segment title="First PID">
       {pid < 0 ? "None" : pid}
     </Segment>
-    <button class="action" on:click={procMan}>Process Manager</button>
+    <button class="action" on:click={procMan}>Processes</button>
   </div>
 </div>
