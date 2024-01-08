@@ -34,6 +34,11 @@
   color: var(--clr-red-bg);
 }
 
+#AppInfo div.header div.right button.disable.disabled {
+  background-color: var(--clr-green-fg);
+  color: var(--clr-green-bg);
+}
+
 #AppInfo div.header div.right button.material-icons-round {
   padding: 0;
   width: 35px;
