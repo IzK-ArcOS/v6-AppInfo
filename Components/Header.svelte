@@ -4,6 +4,7 @@
   import { disableApp, enableApp } from "$ts/apps/disable";
   import { UserDataStore } from "$ts/stores/user";
   import { App } from "$types/app";
+  import { WarningIcon } from "$ts/images/dialog";
 
   export let target: App;
   export let id: string;
@@ -26,7 +27,17 @@
   <div class="left">
     <img src={target.metadata.icon} alt="" />
     <div class="base-info">
-      <p class="name">{target.metadata.name}</p>
+      <p class="name">
+        <span>{target.metadata.name}</span>
+        {#if disabled}
+          <img
+            src={WarningIcon}
+            alt=""
+            class="disabled"
+            title="{target.metadata.name} is disabled!"
+          />
+        {/if}
+      </p>
       <p class="author">{target.metadata.author}</p>
     </div>
   </div>
