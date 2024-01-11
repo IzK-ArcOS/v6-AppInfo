@@ -1,5 +1,4 @@
 import { AppRuntime, getAppById } from "$ts/apps";
-import { Log } from "$ts/console";
 import { AppInfoIcon } from "$ts/images/apps";
 import { sendNotification } from "$ts/notif";
 import { Process } from "$ts/process";

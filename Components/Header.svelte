@@ -1,10 +1,10 @@
 <script lang="ts">
   import { spawnApp } from "$ts/apps";
-  import { isDisabled } from "$ts/apps/disable/utils";
   import { disableApp, enableApp } from "$ts/apps/disable";
+  import { isDisabled } from "$ts/apps/disable/utils";
+  import { WarningIcon } from "$ts/images/dialog";
   import { UserDataStore } from "$ts/stores/user";
   import { App } from "$types/app";
-  import { WarningIcon } from "$ts/images/dialog";
 
   export let target: App;
   export let id: string;
