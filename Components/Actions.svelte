@@ -16,7 +16,7 @@
   }
 
   function close() {
-    runtime.process.handler.kill(runtime.process.pid);
+    runtime.process.handler.kill(runtime.process.pid, true);
   }
 </script>
 

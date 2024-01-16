@@ -18,8 +18,7 @@ export class AppInfoRuntime extends AppRuntime {
     super(app, mutator, process);
 
     function stop(arg?: string) {
-      process.handler.kill(process.pid);
-
+      process.handler.kill(process.pid, true);
 
       const suffix = arg ? ` App "${arg}" could not be found.` : "";
 
