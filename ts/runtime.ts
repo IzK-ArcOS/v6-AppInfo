@@ -50,6 +50,8 @@ export class AppInfoRuntime extends AppRuntime {
       return;
     }
 
+    this.setWindowTitle(`Information about ${targetApp.metadata.name}`)
+
     this._targetId.set(arg)
     this._targetApp.set(targetApp);
   }
