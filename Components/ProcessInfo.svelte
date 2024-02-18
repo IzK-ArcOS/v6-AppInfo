@@ -1,7 +1,9 @@
 <script lang="ts">
+  import InfoBlock from "$state/Desktop/Components/ProcessRenderer/Window/InfoBlock.svelte";
+  import InfoRow from "$state/Desktop/Components/ProcessRenderer/Window/InfoBlock/InfoRow.svelte";
+  import Segment from "$state/Desktop/Components/ProcessRenderer/Window/InfoBlock/Row/Segment.svelte";
   import { spawnApp } from "$ts/apps";
   import { ProcessStack } from "$ts/stores/process";
-  import Segment from "./IndepthInfo/Segment.svelte";
 
   export let id: string;
 
@@ -22,8 +24,8 @@
   ProcessStack.processes.subscribe(update);
 </script>
 
-<div class="info-block">
-  <div class="row">
+<InfoBlock>
+  <InfoRow>
     <Segment title="Processes">
       {count} instance(s)
     </Segment>
@@ -31,5 +33,5 @@
       {pid < 0 ? "None" : pid}
     </Segment>
     <button class="action" on:click={procMan}>Processes</button>
-  </div>
-</div>
+  </InfoRow>
+</InfoBlock>

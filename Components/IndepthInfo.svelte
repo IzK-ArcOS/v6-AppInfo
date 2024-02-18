@@ -1,7 +1,9 @@
 <script lang="ts">
+  import InfoBlock from "$state/Desktop/Components/ProcessRenderer/Window/InfoBlock.svelte";
+  import InfoRow from "$state/Desktop/Components/ProcessRenderer/Window/InfoBlock/InfoRow.svelte";
+  import Segment from "$state/Desktop/Components/ProcessRenderer/Window/InfoBlock/Row/Segment.svelte";
   import { App } from "$types/app";
   import { AppInfoRuntime } from "../ts/runtime";
-  import Segment from "./IndepthInfo/Segment.svelte";
 
   export let target: App;
   export let runtime: AppInfoRuntime;
@@ -15,8 +17,8 @@
   }
 </script>
 
-<div class="info-block">
-  <div class="row">
+<InfoBlock>
+  <InfoRow>
     <Segment title="Size">
       {target.size.w || "FIT"}x{target.size.h || "FIT"}
     </Segment>
@@ -48,8 +50,8 @@
         </button>
       </div>
     </Segment>
-  </div>
-  <div class="row">
+  </InfoRow>
+  <InfoRow>
     <Segment title="Initial Position">
       {target.pos.x}, {target.pos.y}
     </Segment>
@@ -62,14 +64,14 @@
     <Segment title="Single Instance" help={singleInstanceHelp}>
       {target.singleInstance ? "Yes" : "No"}
     </Segment>
-  </div>
+  </InfoRow>
   {#if target.loadCondition}
-    <div class="row">
+    <InfoRow>
       <Segment title="Load Condition" help={loadConditionHelp}>
         <code>
           {target.loadCondition}
         </code>
       </Segment>
-    </div>
+    </InfoRow>
   {/if}
-</div>
+</InfoBlock>

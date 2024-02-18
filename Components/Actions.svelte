@@ -1,4 +1,6 @@
 <script lang="ts">
+  import InfoBlock from "$state/Desktop/Components/ProcessRenderer/Window/InfoBlock.svelte";
+  import InfoRow from "$state/Desktop/Components/ProcessRenderer/Window/InfoBlock/InfoRow.svelte";
   import { isDisabled } from "$ts/apps/disable/utils";
   import { killAllAppInstances } from "$ts/process/kill";
   import { UserDataStore } from "$ts/stores/user";
@@ -20,11 +22,11 @@
   }
 </script>
 
-<div class="info-block actions">
-  <div class="row">
+<InfoBlock className="actions">
+  <InfoRow>
     <p class="id">{id}</p>
 
     <button on:click={killAll} {disabled}>Kill all</button>
     <button class="suggested" on:click={close}>Close</button>
-  </div>
-</div>
+  </InfoRow>
+</InfoBlock>
