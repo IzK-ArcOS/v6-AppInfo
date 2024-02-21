@@ -45,8 +45,6 @@
     <button class="disable" class:disabled on:click={toggleDisable}>
       {disabled ? "Enable" : "Disable"}
     </button>
-    <button class="material-icons-round" on:click={launch} {disabled}>
-      launch
-    </button>
+    <button class="material-icons-round" on:click={launch} {disabled}> launch </button>
   </div>
 </div>
