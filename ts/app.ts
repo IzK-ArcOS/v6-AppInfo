@@ -3,6 +3,7 @@ import { App } from "$types/app";
 import AppSvelte from "../App.svelte";
 import { AppInfoRuntime } from "./runtime";
 
+// Application Metadata
 export const AppInfo: App = {
   metadata: {
     name: "App Info",

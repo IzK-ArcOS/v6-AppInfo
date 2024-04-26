@@ -17,12 +17,14 @@ export class AppInfoRuntime extends AppRuntime {
   constructor(app: App, mutator: ReadableStore<App>, process: Process) {
     super(app, mutator, process);
 
+    // Stops AppInfo if the argument is invalid
     function stop(arg?: string) {
       process.handler.kill(process.pid, true);
 
       const suffix = arg ? ` App "${arg}" could not be found.` : "";
 
       sendNotification({
+        // Let the user know
         title: "Can't open App Info",
         message: `App Info was opened without a valid App ID to pull the information from.${suffix}`,
         image: AppInfoIcon,
@@ -44,7 +46,7 @@ export class AppInfoRuntime extends AppRuntime {
       return;
     }
 
-    const targetApp = getAppById(arg);
+    const targetApp = getAppById(arg); // Get the specified application
 
     if (!targetApp) {
       stop(arg);
@@ -58,12 +60,15 @@ export class AppInfoRuntime extends AppRuntime {
       return;
     }
 
+    // Set the window title according to the specified app
     this.setWindowTitle(`Information about ${targetApp.metadata.name}`);
 
+    // Save the specified app ID and the app data to writables to use in the Svelte
     this._targetId.set(arg);
     this._targetApp.set(targetApp);
   }
 
+  // Displays information to the user about `App.loadCondition`
   public loadConditionDialog() {
     createErrorDialog(
       {
@@ -78,6 +83,7 @@ export class AppInfoRuntime extends AppRuntime {
     );
   }
 
+  // Displays information to the user about `App.singleInstance`
   public singleInstanceDialog() {
     createErrorDialog(
       {
