@@ -3,6 +3,7 @@
   import { disableApp, enableApp } from "$ts/apps/disable";
   import { isDisabled } from "$ts/apps/disable/utils";
   import { WarningIcon } from "$ts/images/dialog";
+  import { DisableBlacklist } from "$ts/stores/apps/blacklist";
   import { UserDataStore } from "$ts/stores/user";
   import { App } from "$types/app";
 
@@ -42,7 +43,12 @@
     </div>
   </div>
   <div class="right">
-    <button class="disable" class:disabled on:click={toggleDisable}>
+    <button
+      class="disable"
+      class:disabled
+      on:click={toggleDisable}
+      disabled={DisableBlacklist.includes(id)}
+    >
       {disabled ? "Enable" : "Disable"}
     </button>
     <button class="material-icons-round" on:click={launch} {disabled}> launch </button>
